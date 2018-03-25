@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('lzx-angular2 App', () => {
+describe('router App', () => {
   let page: AppPage;
 
   beforeEach(() => {

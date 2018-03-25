@@ -1,32 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
-import { StarsComponent } from './stars/stars.component';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { Code404Component } from './code404/code404.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    SearchComponent,
-    CarouselComponent,
+    HomeComponent,
     ProductComponent,
-    StarsComponent
+    Code404Component
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
