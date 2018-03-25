@@ -1,10 +1,12 @@
-<p>
-  这里是商品信息
-</p>
-<p>商品queryParam ID是{{productiId}}</p>
-<p>商品Param ID是 by snaptshop{{paramsProductiId}}</p>
-<p>get商品ID by subscribe是{{subscribeProductiId}}</p>
-<a [routerLink]="['./']">商品描述</a>
-<a [routerLink]="['./seller', 88]">销售员信息</a>
+<div class="product">
+  <p>
+    这里是商品信息
+  </p>
+  <p>商品queryParam ID是{{productiId}}</p>
+  <p>商品Param ID是 by snaptshop{{paramsProductiId}}</p>
+  <p>get商品ID by subscribe是{{subscribeProductiId}}</p>
+  <a [routerLink]="['./']">商品描述</a>
+  <a [routerLink]="['./seller', 88]">销售员信息</a>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>
