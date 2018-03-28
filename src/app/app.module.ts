@@ -11,8 +11,14 @@ import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
+import {RouterModule, Routes} from '@angular/router';
 
-
+const routeConfig: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'product/:proTitle', component: ProductDetailComponent},
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +27,15 @@ import {HttpModule} from '@angular/http';
     SearchComponent,
     CarouselComponent,
     ProductComponent,
-    StarsComponent
+    StarsComponent,
+    ProductDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
