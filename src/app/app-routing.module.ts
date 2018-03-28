@@ -6,6 +6,9 @@ import {Code404Component} from "./code404/code404.component";
 import {ProductDescComponent} from "./product-desc/product-desc.component";
 import {SellerInfoComponent} from "./seller-info/seller-info.component";
 import {ChatComponent} from "./chat/chat.component";
+import {LoginGuard} from "./guard/login.guard";
+import {UnsaveGuard} from "./guard/unsave.guard";
+import {ProductResolve} from "./guard/product.resolve";
 
 const routes: Routes = [
   {path: '', redirectTo:"/home", pathMatch:"full"},  //当URL路径为空时跳转到主页面 这是个重定向路由
@@ -22,12 +25,17 @@ const routes: Routes = [
     {path:"productDesc", component: ProductDescComponent},
     {path:"", component: ProductDescComponent},
     {path:"seller/:id", component: SellerInfoComponent}
-  ]},
+  ], canActivate:[LoginGuard],
+  canDeactivate:[UnsaveGuard,],
+  resolve: {
+    product: ProductResolve
+  }},
   {path: '**', component: Code404Component},//当url与所有的路由都不匹配是跳转到这个组件
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LoginGuard, UnsaveGuard, ProductResolve]
 })
 export class AppRoutingModule { }

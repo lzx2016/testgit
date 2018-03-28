@@ -8,16 +8,28 @@ import {ActivatedRoute, Params} from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   private subscribeProductiId: number;
-  private  productiId:number;
-  private  paramsProductiId:number;
+  private  productId:number;
+  private resoleproductName: string;
+  private resoleproductId: number;
+  private  paramsProductId:number;
   constructor(private routerInfo: ActivatedRoute) { }
 
   ngOnInit() {
-    this.productiId = this.routerInfo.snapshot.queryParams["id"];
-    this.paramsProductiId = this.routerInfo.snapshot.params["id"];
+    this.productId = this.routerInfo.snapshot.queryParams["id"];
+    this.paramsProductId = this.routerInfo.snapshot.params["id"];
     this.routerInfo.params.subscribe((params: Params) => {
       this.subscribeProductiId = params['id']
-    })
+    });
+
+    // 通过路由守卫赋值
+    this.routerInfo.data.subscribe((data:{product:Product}) => {
+      this.resoleproductId = data.product.id;
+      this.resoleproductName = data.product.name;
+    });
   }
 
+}
+
+export class Product {
+  constructor(public id:number, public name:string) {}
 }
