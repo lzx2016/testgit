@@ -5,11 +5,11 @@ export class ProductService {
 
   private products: Product[] = [
     new Product(1, 'abc', 10, 3.99, '这是第一个商品', ['电子产品', ' 日常用品']),
-    new Product(2, 'a12c', 10, 3.99, '这是第一个商品', ['电子产品', ' 日常用品']),
-    new Product(3, 'a123', 10, 3.99, '这是第一个商品', ['电子产品', ' 日常用品']),
+    new Product(2, 'a12c', 10, 3.99, '这是第一个商品', ['电子产品', ' 硬件设备']),
+    new Product(3, 'a123', 10, 3.99, '这是第一个商品', ['电子产品', ' 图书']),
     new Product(4, 'a412bc', 10, 3.99, '这是第一个商品', ['电子产品', ' 日常用品']),
-    new Product(5, '12412bc', 10, 3.99, '这是第一个商品', ['电子产品', ' 日常用品']),
-    new Product(6, '21412', 10, 3.99, '这是第一个商品', ['电子产品', ' 日常用品'])
+    new Product(5, '12412bc', 10, 3.99, '这是第一个商品', ['电子产品', ' 家用电器']),
+    new Product(6, '21412', 10, 3.99, '这是第一个商品', ['电子产品', ' 图书'])
   ];
   private comments: Comment[] = [
     new Comment(1, 1, '2018-04-01 22:22:22', '张三', 3, '东西不错'),
@@ -21,6 +21,9 @@ export class ProductService {
   constructor() { }
   getProducts() {
     return this.products;
+  }
+  getAllCategories(): string[] {
+    return ['图书', '电子产品', '日常用品'];
   }
   getProduct(id: number) {
     return this.products.find((product) => product.id == id);
