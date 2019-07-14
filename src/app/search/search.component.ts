@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
   }
 
   positiveNumberValidator(control: FormControl): any {
-    if (!control) {
+    if (!control.value) {
       return null;
     }
     const price = parseInt(control.value);

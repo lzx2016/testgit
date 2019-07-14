@@ -11,12 +11,12 @@ export class WebSocketComponent implements OnInit {
   constructor(private wsService: WebSocketService) { }
 
   ngOnInit() {
-    this.wsService.createObsevableSocket('ws://localhost:8082')
-      .subscribe(
-        data => console.log(data),
-        err => console.log(err),
-        () => console.log('流已经结束')
-      );
+    // this.wsService.createObsevableSocket('ws://localhost:8082')
+    //   .subscribe(
+    //     data => console.log(data),
+    //     err => console.log(err),
+    //     () => console.log('流已经结束')
+    //   );
 
   }
   sendMessageToServer() {

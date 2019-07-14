@@ -22,7 +22,6 @@ export class ProductService {
     return this.http.get('/api/product/' + id + '/comments' ).map(res => res.json());
   }
   search(params: ProductSearchParams): Observable<Product[]> {
-    debugger;
     return this.http.get('/api/products/' , {search: this.encodeParams(params)}).map(res => res.json());
   }
 
